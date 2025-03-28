@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0D0D0D;
+            color: white;
+            scroll-behavior: smooth;
+        }
+        .topbar {
+            width: 100%;
+            display: flex;
+            align-items: center; /* Ensures all items are vertically aligned */
+            justify-content: center;
+            gap: 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px 20px; /* Adjust padding for better alignment */
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .topbar a {
+            display: inline-flex; /* Ensures uniform height */
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 10px 15px;
+            height: 40px; /* Ensures all items are the same height */
+        }
+        .topbar a:hover {
+            color: #E63946;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #E63946; /* Red background */
+            color: white; /* White text */
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+            border: none;
+            height: 40px; /* Match height with other navbar links */
+        }
+        .btn:hover {
+            background: white;
+            color: #E63946;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 100px;
+            text-align: center;
+        }
+        .hero-text h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        .hero-text span {
+            color: #E63946;
+        }
+        .hero-text p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .recent-works {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .recent-works h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .carousel {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .project {
+            background: #1A1A1A;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+        }
+        .project:hover {
+            transform: scale(1.05);
+        }
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .project h3 {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #E63946;
+        }
+        .project h4 {
+            font-size: 16px;
+            color: #B0B0B0;
+        }
+        .slick-prev, .slick-next {
+            color: white;
+            z-index: 100;
+        }
+        @media (min-width: 768px) {
+            .carousel .slick-slide {
+                display: flex;
+                justify-content: center;
+            }
+            .carousel .project {
+                width: 45%;
+                margin: 10px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .carousel .project {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <a href="dashboard.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html#contact-section">Contact</a>
+       
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Hi, I'm <span>Adrian Rey Panganiban</span></h1>
+            <p>Community Moderator | Web3 Enthusiast | IoT & Software Developer | Continuously Expanding My Expertise</p>
+            <a href="contact.html#contact-section" class="btn">Hire Me</a>
+        </div>
+    </section>
+    
+    <section class="recent-works">
+        <h2>Recent Works</h2>
+        <div class="carousel">
+            <div class="project"><img src="images/ClashofCoins.png" alt="Clash of Coins"><h3>Clash of Coins</h3><h4>Moderator</h4></div>
+            <div class="project"><img src="images/monai.png" alt="MONAI"><h3>MONAI</h3><h4>Community Moderator & Contributor</h4></div>
+            <div class="project"><img src="images/Banners1.png" alt="Event Banners"><h3>Event Banners</h3><h4>Photoshop, Canva, Illustrator, etc</h4></div>
+            <div class="project"><img src="images/IOT.png" alt="Event Moderation"><h3>IoT & Software Developer</h3><h4>IoT-based Smart Egg Incubator Monitoring System</h4></div>
+        </div>
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 250,
+                slidesToShow: 2,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.from(".hero-text h1", { opacity: 0, y: 50, duration: 1, ease: "power3.out" });
+            gsap.from(".hero-text p", { opacity: 0, y: 50, duration: 1, delay: 0.3, ease: "power3.out" });
+            gsap.from(".hero-text .btn", { opacity: 0, scale: 0.8, duration: 0.5, delay: 0.6, ease: "back.out(1.7)" });
+        });
+    </script>
+</body>
+</html>

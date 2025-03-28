@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <!-- FontAwesome for Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0D0D0D;
+            color: white;
+        }
+        /* Navbar */
+        .topbar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .topbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 10px;
+        }
+        .topbar a:hover {
+            color: #E63946;
+        }
+
+        /* Contact Form Container */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: #1A1A1A;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            margin: 120px auto 50px; /* Adjusted for navbar */
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #2D2D2D;
+            color: white;
+            font-size: 16px;
+        }
+        .btn {
+            background: #E63946;
+            color: white;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: white;
+            color: #E63946;
+        }
+        /* Social Media Icons */
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 30px;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            color: #E63946;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="topbar">
+        <a href="dashboard.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html#contact-section">Contact</a>
+    </nav>
+
+    <!-- Contact Form -->
+    <div class="container">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <!-- Social Media Icons -->
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-discord"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>

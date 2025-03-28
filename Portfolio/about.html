@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0D0D0D;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-behavior: smooth;
+        }
+
+        .topbar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .topbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 10px;
+        }
+
+        .topbar a:hover {
+            color: #E63946;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            padding: 150px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-section h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+            opacity: 0;
+        }
+
+        .skills-section {
+            margin-top: 70px;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .skills-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .skill {
+            background: #1A1A1A;
+            padding: 20px;
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        .skill h3 {
+            font-size: 18px;
+            color: #E63946;
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            font-size: 14px;
+            color: #bbbbbb;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 120px 15px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="topbar">
+        <a href="dashboard.html">Home</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section class="about-section" id="about">
+            <h1>About Me</h1>
+            <p>I'm Adrian Rey Panganiban, Web3 enthusiast and crypto community moderator with experience in Discord management, IT support, and IoT. Passionate about blockchain, decentralized tech, and fostering online engagement.</p>
+        </section>
+
+        <section class="skills-section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill"><h3>NFT</h3><p>Experience in NFT projects.</p></div>
+                <div class="skill"><h3>Communication</h3><p>Effective verbal and written skills.</p></div>
+                <div class="skill"><h3>Customer Support</h3><p>Problem-solving and assistance.</p></div>
+                <div class="skill"><h3>IT Support</h3><p>Technical troubleshooting.</p></div>
+                <div class="skill"><h3>Blockchain</h3><p>Understanding decentralized systems.</p></div>
+                <div class="skill"><h3>UI/UX</h3><p>Creating seamless user experiences.</p></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.to(".about-section h1", {opacity: 1, y: 0, duration: 1, ease: "power2.out"});
+            gsap.to(".about-section p", {opacity: 1, y: 0, delay: 0.3, duration: 1, ease: "power2.out"});
+
+            gsap.to(".skills-section", {
+                opacity: 1,
+                transform: "translateY(0)",
+                scrollTrigger: {
+                    trigger: ".about-section",
+                    start: "bottom 80%",
+                    scrub: 1
+                }
+            });
+
+            gsap.utils.toArray(".skill").forEach((skill, index) => {
+                gsap.to(skill, {
+                    opacity: 1,
+                    y: 0,
+                    delay: index * 0.2,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: skill,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
